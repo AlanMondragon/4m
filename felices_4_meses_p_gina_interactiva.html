@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felices 4 Meses, Mi Amor ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Elegante), Caveat (Manuscrita) e Inter (Lectura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        handwriting: ['"Caveat"', 'cursive'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                        },
+                        cream: '#FFFDF9',
+                        gold: '#D4AF37'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FFFDF9;
+            background-image: 
+                radial-gradient(at 15% 15%, rgba(254, 205, 211, 0.35) 0px, transparent 50%),
+                radial-gradient(at 85% 40%, rgba(253, 164, 175, 0.25) 0px, transparent 50%),
+                radial-gradient(at 20% 85%, rgba(254, 228, 230, 0.4) 0px, transparent 50%);
+            overflow-x: hidden;
+        }
+
+        /* Animación de corazones flotantes */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.7) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.85;
+            }
+            80% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.2) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        .floating-heart {
+            position: fixed;
+            bottom: -40px;
+            pointer-events: none;
+            z-index: 10;
+            animation: floatUp linear forwards;
+        }
+
+        /* Efecto 3D para las tarjetas Polaroid */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        .polaroid-flipped .transform-style-3d {
+            transform: rotateY(180deg);
+        }
+
+        /* Cinta adhesiva decorativa estilo Scrapbook */
+        .washi-tape {
+            background-color: rgba(253, 164, 175, 0.55);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(2px);
+            border-left: 2px dashed rgba(255, 255, 255, 0.6);
+            border-right: 2px dashed rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animación del frasco de notas */
+        @keyframes shakeJar {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            20% { transform: rotate(-6deg) scale(1.03); }
+            40% { transform: rotate(6deg) scale(1.05); }
+            60% { transform: rotate(-4deg) scale(1.03); }
+            80% { transform: rotate(4deg) scale(1.02); }
+        }
+        .jar-shake {
+            animation: shakeJar 0.55s ease-in-out;
+        }
+
+        /* Animación del sello de cera */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4), 0 10px 25px -5px rgba(225, 29, 72, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(225, 29, 72, 0), 0 15px 30px -5px rgba(225, 29, 72, 0.6); }
+        }
+        .wax-seal {
+            animation: pulseGlow 2.2s infinite;
+        }
+
+        /* Partículas al hacer clic */
+        .click-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: burstOut 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes burstOut {
+            0% { transform: translate(0, 0) scale(0.4); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(1.3) rotate(var(--rot)); opacity: 0; }
+        }
+
+        /* Animaciones de la Cajita Musical de Zelda */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .wind-key-spinning {
+            animation: spinSlow 4s linear infinite;
+        }
+        @keyframes cylinderScroll {
+            from { background-position: 0 0; }
+            to { background-position: 60px 0; }
+        }
+        .cylinder-active {
+            animation: cylinderScroll 2.5s linear infinite;
+        }
+        @keyframes fairyFloat {
+            0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.8)); }
+            50% { transform: translateY(-6px) scale(1.08); filter: drop-shadow(0 0 14px rgba(244, 63, 94, 0.9)); }
+        }
+        .fairy-glow {
+            animation: fairyFloat 2.4s ease-in-out infinite;
+        }
+
+        /* Ecualizador suave cuando suena cancion.mp3 */
+        @keyframes eqBar1 {
+            0%, 100% { height: 4px; }
+            50% { height: 14px; }
+        }
+        @keyframes eqBar2 {
+            0%, 100% { height: 14px; }
+            50% { height: 5px; }
+        }
+        @keyframes eqBar3 {
+            0%, 100% { height: 6px; }
+            50% { height: 12px; }
+        }
+        .eq-bar-1 { animation: eqBar1 0.7s ease-in-out infinite; }
+        .eq-bar-2 { animation: eqBar2 0.6s ease-in-out infinite; }
+        .eq-bar-3 { animation: eqBar3 0.8s ease-in-out infinite; }
+    </style>
+</head>
+<body class="text-stone-800 antialiased selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- =========================================================================
+         🎵 ARCHIVO DE MÚSICA (cancion.mp3):
+         Sube tu archivo de audio con el nombre "cancion.mp3" en la misma carpeta
+         que este index.html en tu repositorio de GitHub.
+         Se reproducirá automáticamente al hacer clic al inicio de la página.
+    ========================================================================== -->
+    <audio id="bgMusic" src="cancion.mp3" loop preload="auto"></audio>
+
+    <!-- PANTALLA DE BIENVENIDA: SOBRE INTERACTIVO -->
+    <div id="envelope-screen" onclick="openSurprise()" class="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-rose-100 via-cream to-rose-50 p-4 transition-all duration-1000 cursor-pointer">
+        <div class="max-w-md w-full text-center relative">
+            <!-- Destellos decorativos -->
+            <div class="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-rose-200 shadow-sm text-rose-600 text-xs font-medium tracking-widest uppercase">
+                <span>✨ Una sorpresa especial para ti ✨</span>
+            </div>
+
+            <!-- Tarjeta estilo Sobre -->
+            <div id="envelope-card" class="group relative bg-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-rose-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-rose-200/70 overflow-hidden">
+                <!-- Solapa superior decorativa del sobre -->
+                <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-rose-100/80 to-transparent pointer-events-none"></div>
+                
+                <p class="font-handwriting text-3xl text-rose-500 mb-1">Para:</p>
+                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-stone-800 mb-6">
+                    Mi Persona Favorita
+                </h1>
+
+                <!-- Sello de cera interactivo -->
+                <div class="my-8 relative flex justify-center">
+                    <div class="h-px w-full bg-gradient-to-r from-transparent via-rose-200 to-transparent absolute top-1/2 -translate-y-1/2"></div>
+                    <button type="button" aria-label="Abrir carta" class="wax-seal relative z-10 w-24 h-24 rounded-full bg-gradient-to-br from-rose-500 via-rose-600 to-rose-800 text-white flex flex-col items-center justify-center border-4 border-rose-300/60 shadow-xl transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-3xl mb-0.5">❤️</span>
+                        <span class="text-[10px] tracking-widest uppercase font-semibold opacity-90">4 Meses</span>
+                    </button>
+                </div>
+
+                <p class="text-stone-500 text-sm sm:text-base mb-4">
+                    He guardado algunos de mis momentos y pensamientos favoritos aquí adentro...
+                </p>
+
+                <span class="inline-flex items-center gap-2 text-rose-600 font-medium text-sm group-hover:underline">
+                    Toca para abrir y escuchar nuestra canción 🎵
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BARRA FLOTANTE SUPERIOR -->
+    <nav class="sticky top-3 z-40 px-4 pointer-events-none">
+        <div class="max-w-3xl mx-auto flex items-center justify-between bg-white/85 backdrop-blur-md border border-rose-100/80 shadow-lg shadow-rose-100/40 rounded-full px-4 sm:px-6 py-2.5 pointer-events-auto">
+            <a href="#inicio" class="flex items-center gap-2 text-rose-600 font-serif font-bold text-sm sm:text-base">
+                <span class="text-lg">🌹</span>
+                <span>Nuestros 4 Meses</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-5 text-xs font-medium text-stone-600">
+                <a href="#fotos" class="hover:text-rose-600 transition-colors">Nuestras 4 Fotos</a>
+                <a href="#tiempo" class="hover:text-rose-600 transition-colors">Tiempo Juntos</a>
+                <a href="#cajita-musical" class="hover:text-rose-600 transition-colors">Cajita Musical</a>
+                <a href="#frasco" class="hover:text-rose-600 transition-colors">Frasco de Amor</a>
+                <a href="#pregunta" class="hover:text-rose-600 transition-colors">Sorpresa</a>
+            </div>
+            <!-- Botón flotante para pausar/reanudar cancion.mp3 -->
+            <div class="flex items-center gap-1.5">
+                <button id="music-btn" onclick="toggleMusic()" class="flex items-center gap-2 text-xs font-medium px-3.5 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 shadow-sm transition-all" title="Reproducir o pausar cancion.mp3">
+                    <!-- Ecualizador animado cuando suena -->
+                    <span id="nav-eq-bars" class="hidden items-end gap-0.5 h-3.5">
+                        <span class="w-0.5 bg-rose-500 rounded-full eq-bar-1"></span>
+                        <span class="w-0.5 bg-rose-600 rounded-full eq-bar-2"></span>
+                        <span class="w-0.5 bg-rose-500 rounded-full eq-bar-3"></span>
+                    </span>
+                    <span id="nav-music-icon" class="text-rose-500 text-xs">🎵</span>
+                    <span id="music-label">Nuestra Canción</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="inicio" class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-24 space-y-24">
+
+        <!-- 1. HERO PRINCIPAL -->
+        <header class="text-center pt-6 sm:pt-12 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100/70 text-rose-700 text-xs sm:text-sm font-medium mb-6 border border-rose-200/60">
+                <span>4 meses construyendo el capítulo más bonito</span>
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-stone-800 tracking-tight leading-tight mb-6">
+                Felices <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-rose-600 to-pink-500 italic">4 Meses</span>,<br>
+                Mi Amor
+            </h1>
+
+            <p class="font-handwriting text-2xl sm:text-3xl text-rose-600 mb-6">
+                "Contigo, cada día se siente como mi lugar favorito en el mundo."
+            </p>
+
+            <p class="text-stone-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+                Hace cuatro meses comenzó mi aventura favorita. Gracias por tus risas, tu ternura y ese amor que reinicia mi mundo, y por hacer que cada momento que compartimos sea inolvidable. Hice este rincón en internet solo para nosotros.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#fotos" class="px-6 py-3.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-sm shadow-lg shadow-rose-300/60 transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                    <span>Ver nuestros 4 meses en fotos</span>
+                    <i data-lucide="heart" class="w-4 h-4 fill-current"></i>
+                </a>
+                <button onclick="openLetterModal()" class="px-6 py-3.5 rounded-full bg-white hover:bg-rose-50 text-rose-700 border border-rose-200 font-medium text-sm shadow-sm transition-all flex items-center gap-2">
+                    <i data-lucide="mail-open" class="w-4 h-4"></i>
+                    <span>Leer mi carta para ti</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- 2. ÁLBUM POLAROID INTERACTIVO DE 4 FOTOS -->
+        <section id="fotos" class="scroll-mt-24">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="font-handwriting text-2xl text-rose-500">Nuestros recuerdos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-800 mt-1 mb-3">
+                    4 Meses, 4 Momentos Inolvidables
+                </h2>
+                <p class="text-stone-600 text-sm sm:text-base">
+                    Toca cualquier foto Polaroid para <span class="text-rose-600 font-medium">girarla y leer el mensaje secreto</span> detrás, o usa el botón de cámara para probar cómo se ven nuestras fotos.
+                </p>
+            </div>
+
+            <!-- Grid de las 4 Fotos Polaroid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 pt-4">
+
+                <!-- ================= FOTO 1 (MES 1) ================= -->
+                <div class="polaroid-card perspective-1000 h-[410px] cursor-pointer group -rotate-1 hover:rotate-0 transition-transform duration-300" onclick="flipPolaroid(this)">
+                    <div class="relative w-full h-full transform-style-3d">
+                        <!-- Frente de la Polaroid -->
+                        <div class="absolute inset-0 backface-hidden bg-white p-4 pb-6 rounded-2xl shadow-xl border border-stone-100 flex flex-col justify-between">
+                            <!-- Cinta adhesiva decorativa -->
+                            <div class="washi-tape w-24 h-6 absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2 z-20 rounded-sm"></div>
+                            
+                            <div class="relative w-full h-64 rounded-xl overflow-hidden bg-rose-50 border border-rose-100">
+                                <!-- =========================================================
+                                     👇 CAMBIA EL LINK DE LA FOTO 1 AQUÍ 👇
+                                     Si subes tu foto a GitHub en la misma carpeta, pon por ejemplo:
+                                     src="foto1.jpg"
+                                ========================================================== -->
+                                <img id="photo-1" 
+                                     src="foto1.jpg" 
+                                     alt="Nuestro Primer Mes" 
+                                     onerror="this.src='https://placehold.co/600x700/ffe4e6/be123c?text=Foto+1'"
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                
+                                <!-- Etiqueta del Mes -->
+                                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-rose-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                                    Foto 01 ✨
+                                </span>
+
+                                <!-- Botón rápido para probar foto desde el dispositivo -->
+                                <label onclick="event.stopPropagation()" class="absolute bottom-2.5 right-2.5 bg-black/55 hover:bg-rose-600 text-white p-2 rounded-full cursor-pointer backdrop-blur-sm transition-colors shadow" title="Probar con una foto de tu galería">
+                                    <i data-lucide="camera" class="w-4 h-4"></i>
+                                    <input type="file" accept="image/*" class="hidden" onchange="previewLocalPhoto(event, 'photo-1', 1)">
+                                </label>
+                            </div>
+
+                            <div class="pt-3 text-center">
+                                <h3 class="font-handwriting text-2xl font-bold text-stone-800">Donde todo empezó</h3>
+                                <p class="text-xs text-stone-400 mt-0.5 flex items-center justify-center gap-1">
+                                    <i data-lucide="rotate-cw" class="w-3 h-3"></i> Toca para girar la foto
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Reverso de la Polaroid (Mensaje) -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-rose-100/70 p-6 rounded-2xl shadow-xl border-2 border-rose-200 flex flex-col justify-between text-center">
+                            <div class="text-xs font-semibold uppercase tracking-widest text-rose-500">Capítulo 1 • El Inicio</div>
+                            <div class="my-auto">
+                                <p class="font-handwriting text-2xl text-stone-700 leading-snug">
+                                    <!-- 👇 PUEDES CAMBIAR EL MENSAJE DETRÁS DE LA FOTO 1 AQUÍ 👇 -->
+                                    "Aun recuerdo cuando nos conocimos, ninguno de los 2 pensaba que terminariamos juntos, nuestra historia es tan bonita como sincera, se que contigo conoci el amor."
+                                </p>
+                            </div>
+                            <div class="text-xs text-rose-600 font-medium flex items-center justify-center gap-1">
+                                <span>❤️ Toca para volver a la foto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= FOTO 2 (MES 2) ================= -->
+                <div class="polaroid-card perspective-1000 h-[410px] cursor-pointer group rotate-1 hover:rotate-0 transition-transform duration-300" onclick="flipPolaroid(this)">
+                    <div class="relative w-full h-full transform-style-3d">
+                        <!-- Frente -->
+                        <div class="absolute inset-0 backface-hidden bg-white p-4 pb-6 rounded-2xl shadow-xl border border-stone-100 flex flex-col justify-between">
+                            <div class="washi-tape w-24 h-6 absolute -top-3 left-1/2 -translate-x-1/2 rotate-2 z-20 rounded-sm"></div>
+                            
+                            <div class="relative w-full h-64 rounded-xl overflow-hidden bg-rose-50 border border-rose-100">
+                                <!-- =========================================================
+                                     👇 CAMBIA EL LINK DE LA FOTO 2 AQUÍ 👇
+                                     Ejemplo: src="foto2.jpg"
+                                ========================================================== -->
+                                <img id="photo-2" 
+                                     src="foto2.jpg"
+                                     alt="Nuestro Segundo Mes" 
+                                     onerror="this.src='https://placehold.co/600x700/fecdd3/9f1239?text=Foto+2'"
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                
+                                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-rose-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                                    Foto 02 🌸
+                                </span>
+
+                                <label onclick="event.stopPropagation()" class="absolute bottom-2.5 right-2.5 bg-black/55 hover:bg-rose-600 text-white p-2 rounded-full cursor-pointer backdrop-blur-sm transition-colors shadow" title="Probar con una foto de tu galería">
+                                    <i data-lucide="camera" class="w-4 h-4"></i>
+                                    <input type="file" accept="image/*" class="hidden" onchange="previewLocalPhoto(event, 'photo-2', 2)">
+                                </label>
+                            </div>
+
+                            <div class="pt-3 text-center">
+                                <h3 class="font-handwriting text-2xl font-bold text-stone-800">Risas y complicidad</h3>
+                                <p class="text-xs text-stone-400 mt-0.5 flex items-center justify-center gap-1">
+                                    <i data-lucide="rotate-cw" class="w-3 h-3"></i> Toca para girar la foto
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Reverso -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-rose-100/70 p-6 rounded-2xl shadow-xl border-2 border-rose-200 flex flex-col justify-between text-center">
+                            <div class="text-xs font-semibold uppercase tracking-widest text-rose-500">Capítulo 2 • Cómplices</div>
+                            <div class="my-auto">
+                                <p class="font-handwriting text-2xl text-stone-700 leading-snug">
+                                    <!-- 👇 PUEDES CAMBIAR EL MENSAJE DETRÁS DE LA FOTO 2 AQUÍ 👇 -->
+                                    "Aquí descubrí que mi sonido favorito en el mundo es tu risa, y que cualquier plan se vuelve perfecto cuando lo compartimos, aunque sea a la distancia."
+                                </p>
+                            </div>
+                            <div class="text-xs text-rose-600 font-medium flex items-center justify-center gap-1">
+                                <span>❤️ Toca para volver a la foto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= FOTO 3 (MES 3) ================= -->
+                <div class="polaroid-card perspective-1000 h-[410px] cursor-pointer group -rotate-1 hover:rotate-0 transition-transform duration-300" onclick="flipPolaroid(this)">
+                    <div class="relative w-full h-full transform-style-3d">
+                        <!-- Frente -->
+                        <div class="absolute inset-0 backface-hidden bg-white p-4 pb-6 rounded-2xl shadow-xl border border-stone-100 flex flex-col justify-between">
+                            <div class="washi-tape w-24 h-6 absolute -top-3 left-1/2 -translate-x-1/2 -rotate-1 z-20 rounded-sm"></div>
+                            
+                            <div class="relative w-full h-64 rounded-xl overflow-hidden bg-rose-50 border border-rose-100">
+                                <!-- =========================================================
+                                     👇 CAMBIA EL LINK DE LA FOTO 3 AQUÍ 👇
+                                     Ejemplo: src="foto3.jpg"
+                                ========================================================== -->
+                                <img id="photo-3" 
+                                     src="foto3.jpg" 
+                                     alt="Nuestro Tercer Mes" 
+                                     onerror="this.src='https://placehold.co/600x700/fda4af/881337?text=Foto+3'"
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                
+                                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-rose-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                                    Foto 03 🌙
+                                </span>
+
+                                <label onclick="event.stopPropagation()" class="absolute bottom-2.5 right-2.5 bg-black/55 hover:bg-rose-600 text-white p-2 rounded-full cursor-pointer backdrop-blur-sm transition-colors shadow" title="Probar con una foto de tu galería">
+                                    <i data-lucide="camera" class="w-4 h-4"></i>
+                                    <input type="file" accept="image/*" class="hidden" onchange="previewLocalPhoto(event, 'photo-3', 3)">
+                                </label>
+                            </div>
+
+                            <div class="pt-3 text-center">
+                                <h3 class="font-handwriting text-2xl font-bold text-stone-800">Mi lugar seguro</h3>
+                                <p class="text-xs text-stone-400 mt-0.5 flex items-center justify-center gap-1">
+                                    <i data-lucide="rotate-cw" class="w-3 h-3"></i> Toca para girar la foto
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Reverso -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-rose-100/70 p-6 rounded-2xl shadow-xl border-2 border-rose-200 flex flex-col justify-between text-center">
+                            <div class="text-xs font-semibold uppercase tracking-widest text-rose-500">Capítulo 3 • Más Unidos</div>
+                            <div class="my-auto">
+                                <p class="font-handwriting text-2xl text-stone-700 leading-snug">
+                                    <!-- 👇 PUEDES CAMBIAR EL MENSAJE DETRÁS DE LA FOTO 3 AQUÍ 👇 -->
+                                    "Tus palabras se convirtieron en mi refugio favorito. Gracias por escucharme, cuidarme y amarme tan bonito cada día."
+                                </p>
+                            </div>
+                            <div class="text-xs text-rose-600 font-medium flex items-center justify-center gap-1">
+                                <span>❤️ Toca para volver a la foto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= FOTO 4 (MES 4) ================= -->
+                <div class="polaroid-card perspective-1000 h-[410px] cursor-pointer group rotate-1 hover:rotate-0 transition-transform duration-300" onclick="flipPolaroid(this)">
+                    <div class="relative w-full h-full transform-style-3d">
+                        <!-- Frente -->
+                        <div class="absolute inset-0 backface-hidden bg-white p-4 pb-6 rounded-2xl shadow-xl border border-stone-100 flex flex-col justify-between">
+                            <div class="washi-tape w-24 h-6 absolute -top-3 left-1/2 -translate-x-1/2 rotate-3 z-20 rounded-sm"></div>
+                            
+                            <div class="relative w-full h-64 rounded-xl overflow-hidden bg-rose-50 border border-rose-100">
+                                <!-- =========================================================
+                                     👇 CAMBIA EL LINK DE LA FOTO 4 AQUÍ 👇
+                                     Ejemplo: src="foto4.jpg"
+                                ========================================================== -->
+                                <img id="photo-4" 
+                                     src="foto4.jpg" 
+                                     alt="Nuestro Cuarto Mes" 
+                                     onerror="this.src='https://placehold.co/600x700/ffe4e6/be123c?text=Foto+4'"
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                
+                                <span class="absolute top-3 left-3 bg-rose-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                                    Foto 04 💖
+                                </span>
+
+                                <label onclick="event.stopPropagation()" class="absolute bottom-2.5 right-2.5 bg-black/55 hover:bg-rose-600 text-white p-2 rounded-full cursor-pointer backdrop-blur-sm transition-colors shadow" title="Probar con una foto de tu galería">
+                                    <i data-lucide="camera" class="w-4 h-4"></i>
+                                    <input type="file" accept="image/*" class="hidden" onchange="previewLocalPhoto(event, 'photo-4', 4)">
+                                </label>
+                            </div>
+
+                            <div class="pt-3 text-center">
+                                <h3 class="font-handwriting text-2xl font-bold text-stone-800">4 meses y contando...</h3>
+                                <p class="text-xs text-stone-400 mt-0.5 flex items-center justify-center gap-1">
+                                    <i data-lucide="rotate-cw" class="w-3 h-3"></i> Toca para girar la foto
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Reverso -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-rose-50 via-white to-rose-100/70 p-6 rounded-2xl shadow-xl border-2 border-rose-200 flex flex-col justify-between text-center">
+                            <div class="text-xs font-semibold uppercase tracking-widest text-rose-500">Capítulo 4 • Hoy y Siempre</div>
+                            <div class="my-auto">
+                                <p class="font-handwriting text-2xl text-stone-700 leading-snug">
+                                    <!-- 👇 PUEDES CAMBIAR EL MENSAJE DETRÁS DE LA FOTO 4 AQUÍ 👇 -->
+                                    "Cuatro meses maravillosos juntos y siento que esto apenas comienza. Te elijo hoy, mañana y toda la eternidad."
+                                </p>
+                            </div>
+                            <div class="text-xs text-rose-600 font-medium flex items-center justify-center gap-1">
+                                <span>❤️ Toca para volver a la foto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. CONTADOR DE TIEMPO JUNTOS Y ESTADÍSTICAS -->
+        <section id="tiempo" class="scroll-mt-24">
+            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-10 shadow-xl border border-rose-100 relative overflow-hidden">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="font-handwriting text-2xl text-rose-500">Cada segundo cuenta</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-800 mt-1">
+                        Nuestro Tiempo Juntos
+                    </h2>
+                    <p class="text-stone-500 text-sm mt-2">
+                         Cuatro meses llenos de magia que se traducen en todo este tiempo compartiendo la vida:
+                    </p>
+                </div>
+
+                <!-- Tarjetas del contador -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
+                    <div class="bg-rose-50/80 border border-rose-100 rounded-2xl p-5 text-center">
+                        <span id="counter-months" class="block font-serif text-4xl sm:text-5xl font-bold text-rose-600">4</span>
+                        <span class="text-xs sm:text-sm font-medium text-stone-600 uppercase tracking-wider mt-1 block">Meses de Amor</span>
+                    </div>
+                    <div class="bg-rose-50/80 border border-rose-100 rounded-2xl p-5 text-center">
+                        <span id="counter-days" class="block font-serif text-4xl sm:text-5xl font-bold text-rose-600">122</span>
+                        <span class="text-xs sm:text-sm font-medium text-stone-600 uppercase tracking-wider mt-1 block">Días Juntos</span>
+                    </div>
+                    <div class="bg-rose-50/80 border border-rose-100 rounded-2xl p-5 text-center">
+                        <span id="counter-hours" class="block font-serif text-4xl sm:text-5xl font-bold text-rose-600">2,928</span>
+                        <span class="text-xs sm:text-sm font-medium text-stone-600 uppercase tracking-wider mt-1 block">Horas Pensándote</span>
+                    </div>
+                    <div class="bg-rose-50/80 border border-rose-100 rounded-2xl p-5 text-center">
+                        <span class="block font-serif text-4xl sm:text-5xl font-bold text-rose-600">∞</span>
+                        <span class="text-xs sm:text-sm font-medium text-stone-600 uppercase tracking-wider mt-1 block">Sonrisas Contigo</span>
+                    </div>
+                </div>
+
+                <!-- Pequeña línea de tiempo interactiva -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-rose-100">
+                    <div class="p-4 rounded-2xl bg-cream border border-rose-100/80 flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 font-bold">1</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-stone-800">Gemini?</h4>
+                            <p class="text-xs text-stone-600 mt-1">Un día después, en el MC, surgió Gemini y pasaron cositas.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cream border border-rose-100/80 flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 font-bold">2</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-stone-800">El "Sí" más bonito</h4>
+                            <p class="text-xs text-stone-600 mt-1">Llevamos más de 4 meses, pero ese día lo hicimos oficial. Aún recuerdo mis nervios.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cream border border-rose-100/80 flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 font-bold">3</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-stone-800">Todo lo que viene</h4>
+                            <p class="text-xs text-stone-600 mt-1">Casarnos, abrazarnos, amarnos, vivir juntos y disfrutar de cada momento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.5. CAJITA MUSICAL INTERACTIVA (CONTROLA cancion.mp3) -->
+        <section id="cajita-musical" class="scroll-mt-24">
+            <div class="bg-gradient-to-br from-rose-50 via-white to-amber-50/70 rounded-3xl p-6 sm:p-10 shadow-xl border-2 border-rose-200/80 relative overflow-hidden">
+                <!-- Decoración musical sutil de fondo -->
+                <div class="-right-8 -bottom-8 absolute opacity-5 pointer-events-none select-none text-9xl">
+                    🎶
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <!-- Visual de la Cajita Musical Mecánica -->
+                    <div class="lg:col-span-5 flex flex-col items-center">
+                        <div class="relative w-full max-w-xs bg-white/95 rounded-3xl p-6 shadow-lg border border-rose-200 text-center">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-rose-700 bg-rose-100/80 px-3 py-1 rounded-full border border-rose-200">
+                                    <span>🎵</span> Cajita Musical
+                                </span>
+                                <div id="fairy-indicator" class="fairy-glow flex items-center gap-1 text-xs font-medium text-rose-500">
+                                    <span>✨</span>
+                                    <span id="music-status-badge" class="text-[11px] text-stone-400">Lista para sonar</span>
+                                </div>
+                            </div>
+
+                            <!-- Mecanismo visual de la Cajita Musical -->
+                            <div class="relative my-3 p-4 rounded-2xl bg-gradient-to-b from-amber-50/90 to-rose-50/60 border border-amber-200/90 shadow-inner">
+                                <div class="flex items-center justify-center gap-4">
+                                    <!-- Llave de cuerda giratoria -->
+                                    <button onclick="toggleMusic()" class="group relative w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 via-rose-600 to-amber-500 text-white shadow-md flex items-center justify-center transition-transform hover:scale-105" title="Reproducir / Pausar cancion.mp3">
+                                        <svg id="wind-up-key" class="w-9 h-9 text-white drop-shadow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="7" cy="7" r="3.5" />
+                                            <circle cx="7" cy="17" r="3.5" />
+                                            <path d="M10.5 7H16V17H10.5" />
+                                            <path d="M16 12H21" stroke-linecap="round" />
+                                            <path d="M19 9V15" stroke-linecap="round" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Cilindro dorado animado -->
+                                    <div class="flex-1 text-left">
+                                        <div class="text-[11px] font-semibold text-amber-800 uppercase tracking-wider mb-1 flex items-center justify-between">
+                                            <span>Heartbeat</span>
+                                            <span id="audio-time-display" class="font-mono text-rose-500 text-[11px]">0:00</span>
+                                        </div>
+                                        <div id="music-cylinder" class="h-10 w-full rounded-xl border border-amber-300 shadow-inner overflow-hidden relative" style="background-color: #fef3c7; background-image: radial-gradient(#d97706 1.7px, transparent 1.7px), radial-gradient(#f43f5e 1.5px, #fef3c7 1.5px); background-size: 20px 20px; background-position: 0 0, 10px 10px;">
+                                            <div class="absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-amber-600/30 to-transparent"></div>
+                                            <div class="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-amber-600/30 to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Barra de progreso de cancion.mp3 -->
+                                <div class="mt-4">
+                                    <input id="audio-progress" type="range" min="0" max="100" value="0" step="0.1"
+                                           oninput="seekAudio(this.value)"
+                                           class="w-full h-1.5 bg-rose-200 rounded-lg appearance-none cursor-pointer accent-rose-600">
+                                </div>
+
+                                <p id="now-playing-title" class="font-serif italic text-xs text-stone-600 mt-2">
+                                    Sonando automáticamente desde el inicio 💖
+                                </p>
+                            </div>
+
+                            <!-- Botón Principal Reproducir / Pausar -->
+                            <button onclick="toggleMusic()" id="main-music-box-btn" class="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-rose-500 via-rose-600 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-medium text-sm shadow-md shadow-rose-200 transition-all flex items-center justify-center gap-2">
+                                <span id="main-music-box-label">Reproducir Nuestra Canción 🎵</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Información y botón opcional para probar el MP3 antes de subir a GitHub -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div>
+                            <span class="font-handwriting text-2xl text-rose-500">Nuestra melodía especial</span>
+                            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-800 mt-0.5">
+                                La Canción de Nuestro Amor
+                            </h2>
+                            <p class="text-stone-600 text-sm sm:text-base mt-2 leading-relaxed">
+                                Es curioso pensar que la primera canción que me dedicaste habla del destino; luego pasó lo del concierto. Mi amor, tú y yo estamos destinados a estar juntos, y esta canción es la prueba de ello.
+                            </p>
+                        </div>
+
+                        <!-- Tarjeta romántica + control de volumen y prueba local -->
+                        <div class="bg-white/85 rounded-2xl p-4 sm:p-5 border border-rose-100 shadow-sm space-y-4">
+                            <div class="flex flex-wrap items-center justify-between gap-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg">
+                                        💖
+                                    </div>
+                                    <div>
+                                        <h4 class="font-serif font-bold text-stone-800 text-sm">Rola: <code class="text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded">Heartbeat</code></h4>
+                                    </div>
+                                </div>
+
+
+                            <!-- Control de volumen -->
+                            <div class="flex items-center gap-3 pt-2 border-t border-rose-100/80">
+                                <span class="text-xs text-stone-500 font-medium">🔈 Volumen:</span>
+                                <input type="range" min="0" max="1" step="0.05" value="0.15"
+                                       oninput="changeVolume(this.value)"
+                                       class="w-36 sm:w-48 h-1.5 bg-rose-100 rounded-lg appearance-none cursor-pointer accent-rose-600">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FRASCO INTERACTIVO DE "RAZONES POR LAS QUE TE QUIERO" + RASPADITO -->
+        <section id="frasco" class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            
+            <!-- Frasco de Notas de Amor -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-rose-100 flex flex-col justify-between text-center">
+                <div>
+                    <span class="font-handwriting text-2xl text-rose-500">Para cuando quieras sonreír</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-800 mt-1">
+                        El Frasco de Nuestro Amor
+                    </h2>
+                    <p class="text-stone-500 text-sm mt-1">
+                        Toca el frasco para sacar un papelito con una razón por la que te amo.
+                    </p>
+                </div>
+
+                <!-- Ilustración SVG del Frasco Interactivo -->
+                <div class="my-6 flex flex-col items-center">
+                    <div id="love-jar" onclick="drawLoveNote()" class="cursor-pointer select-none group relative w-40 h-48 flex items-center justify-center transition-transform hover:scale-105" title="Toca para sacar una nota">
+                        <svg viewBox="0 0 160 200" class="w-full h-full drop-shadow-md">
+                            <!-- Tapa del frasco -->
+                            <rect x="42" y="14" width="76" height="18" rx="6" fill="#fda4af" stroke="#e11d48" stroke-width="2.5"/>
+                            <rect x="38" y="28" width="84" height="10" rx="4" fill="#fecdd3" stroke="#e11d48" stroke-width="2"/>
+                            <!-- Cuerpo de cristal -->
+                            <path d="M44 38 L116 38 C130 50 136 65 136 90 L136 165 C136 180 124 190 108 190 L52 190 C36 190 24 180 24 165 L24 90 C24 65 30 50 44 38 Z" fill="rgba(255, 241, 242, 0.75)" stroke="#fb7185" stroke-width="3"/>
+                            <!-- Brillo del cristal -->
+                            <path d="M36 70 L36 155" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+                            <!-- Papelitos de colores adentro -->
+                            <rect x="45" y="145" width="28" height="18" rx="3" transform="rotate(-12 45 145)" fill="#fda4af"/>
+                            <rect x="78" y="150" width="30" height="18" rx="3" transform="rotate(8 78 150)" fill="#f43f5e"/>
+                            <rect x="55" y="128" width="32" height="18" rx="3" transform="rotate(15 55 128)" fill="#fecdd3"/>
+                            <rect x="85" y="125" width="26" height="18" rx="3" transform="rotate(-18 85 125)" fill="#fb7185"/>
+                            <rect x="42" y="112" width="28" height="16" rx="3" transform="rotate(6 42 112)" fill="#ffe4e6" stroke="#fb7185" stroke-width="1"/>
+                            <!-- Etiqueta del frasco -->
+                            <rect x="46" y="72" width="68" height="36" rx="6" fill="white" stroke="#fda4af" stroke-width="2"/>
+                            <text x="80" y="95" text-anchor="middle" fill="#e11d48" font-family="Caveat, cursive" font-size="18" font-weight="bold">Ábreme ❤️</text>
+                        </svg>
+                    </div>
+
+                    <!-- Papelito desplegado -->
+                    <div id="note-display" class="w-full min-h-[110px] bg-rose-50/90 border-2 border-dashed border-rose-200 rounded-2xl p-4 flex flex-col items-center justify-center transition-all duration-300">
+                        <span id="note-number" class="text-[11px] uppercase tracking-widest text-rose-400 font-semibold mb-1">Razón #1 de infinitas</span>
+                        <p id="note-text" class="font-handwriting text-2xl text-stone-800 leading-snug">
+                            "Por la forma en que tus ojos brillan cuando me miras y me haces sentir único."
+                        </p>
+                    </div>
+                </div>
+
+                <button onclick="drawLoveNote()" class="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-medium text-sm shadow-md shadow-rose-200 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    <span>Sacar otro papelito del frasco</span>
+                </button>
+            </div>
+
+            <!-- Cupón Raspadito Interactivo -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-rose-100 flex flex-col justify-between text-center">
+                <div>
+                    <span class="font-handwriting text-2xl text-rose-500">Un regalo extra</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-800 mt-1">
+                        Raspa tu Sorpresa de 4 Meses
+                    </h2>
+                    <p class="text-stone-500 text-sm mt-1">
+                        Desliza tu dedo o el mouse sobre la tarjeta plateada para descubrir tu vale especial:
+                    </p>
+                </div>
+
+                <!-- Contenedor del Canvas Raspadito -->
+                <div class="my-6 relative w-full max-w-sm mx-auto h-52 rounded-2xl overflow-hidden shadow-inner border-2 border-rose-200 select-none bg-gradient-to-br from-rose-50 via-white to-pink-50 flex flex-col items-center justify-center p-6">
+                    <!-- Premio oculto debajo -->
+                    <div class="text-center z-0">
+                        <span class="inline-block text-3xl mb-1">🎟️✨🍓</span>
+                        <h3 class="font-serif font-bold text-xl text-rose-700">¡Vale por una eternidad juntos!</h3>
+                        <p class="text-xs sm:text-sm text-stone-600 mt-1">
+                            Valido por esta eternidad te amo.
+                        </p>
+                        <span class="inline-block mt-2 text-[11px] font-semibold uppercase tracking-widest text-rose-500 bg-rose-100 px-3 py-0.5 rounded-full">
+                            Sin fecha de vencimiento ❤️
+                        </span>
+                    </div>
+
+                    <!-- Lienzo para raspar -->
+                    <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full cursor-pointer z-10 touch-none"></canvas>
+                </div>
+
+                <div class="flex items-center justify-between gap-3">
+                    <span id="scratch-status" class="text-xs text-stone-500">
+                        💡 Raspa con el dedo o mouse arriba
+                    </span>
+                    <button onclick="initScratchCard()" class="text-xs font-medium text-rose-600 hover:text-rose-800 underline">
+                        Reiniciar raspadito
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 5. JUEGO INTERACTIVO FINAL: ¿ME QUIERES? -->
+        <section id="pregunta" class="scroll-mt-24">
+            <div class="bg-gradient-to-br from-rose-500 via-rose-600 to-pink-600 rounded-3xl p-8 sm:p-12 text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="max-w-xl mx-auto relative z-10">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs uppercase tracking-widest font-semibold mb-4">
+                        Pregunta muy importante
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-4">
+                        ¿Juntos para siempre? ❤️
+                    </h2>
+                    <p id="question-subtitle" class="text-rose-100 text-sm sm:text-base mb-8">
+                        Elige sabiamente tu respuesta (pista: hay un botón que tiene mucha ilusión)...
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center gap-4 min-h-[70px]">
+                        <button id="btn-yes" onclick="celebrateLove()" class="px-8 py-4 rounded-full bg-white text-rose-600 font-bold text-base sm:text-lg shadow-xl hover:bg-rose-50 transition-all duration-300">
+                            ¡Sí de hecho 🤓👆 💖
+                        </button>
+                        <button id="btn-playful" onclick="growYesButton()" class="px-5 py-3 rounded-full bg-rose-800/50 hover:bg-rose-800/70 text-rose-100 text-sm font-medium border border-rose-300/30 transition-all">
+                            Nadota
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="text-center pt-4 pb-8 text-stone-400 text-xs sm:text-sm">
+            <p class="font-handwriting text-2xl text-rose-500 mb-1">Hecho con todo mi corazón para ti</p>
+            <p>Felices 4 Meses • Nuestra Historia Continúa ❤️</p>
+        </footer>
+
+    </main>
+
+    <!-- MODAL DE LA CARTA DE AMOR -->
+    <div id="letter-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-stone-900/60 backdrop-blur-sm p-4">
+        <div class="bg-cream max-w-lg w-full rounded-3xl p-6 sm:p-10 shadow-2xl border-2 border-rose-200 relative animate-fadeIn max-h-[90vh] overflow-y-auto">
+            <button onclick="closeLetterModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center hover:bg-rose-200 transition-colors" aria-label="Cerrar">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="text-3xl">💌</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-800 mt-1">Carta por Nuestros 4 Meses</h3>
+                <p class="text-xs text-rose-500 uppercase tracking-widest mt-1">Para la mujer mas hermosa del mundo</p>
+            </div>
+
+            <!-- 👇 PUEDES PERSONALIZAR EL TEXTO DE LA CARTA AQUÍ 👇 -->
+            <div class="space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed font-sans">
+                <p>Mi amor:</p>
+                <p>
+                    Hoy cumplimos <strong>4 meses juntos</strong> y no quería dejar pasar este día sin recordarte lo importante que eres en mi vida. Parece increíble todo lo que hemos vivido, reído y aprendido en estos 122 días.
+                </p>
+                <p>
+                    Gracias por tu forma tan linda de amarme, por iluminar mis días incluso cuando todo parece complicado, y por hacer que cada llamada, cada plática y cada detalle se sientan tan especiales.
+                </p>
+                <p>
+                    Eres mi destino y mi lugar favorito. Prometo seguir cuidando lo nuestro, haciéndote reír y sumando recuerdos hermosos a tu lado.
+                </p>
+                <p class="font-handwriting text-3xl text-rose-600 text-right pt-2">
+                    ¡Felices 4 meses, Te amo muchísimo! ❤️
+                </p>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button onclick="closeLetterModal(); spawnHeartShower(25);" class="px-6 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-sm font-medium shadow-md transition-all">
+                    Guardar en mi corazón 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS DE INTERACTIVIDAD -->
+    <script>
+        // Inicializar iconos Lucide
+        lucide.createIcons();
+
+        // Referencia al elemento de audio <audio id="bgMusic" src="cancion.mp3">
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.volume = 0.15;
+        let hasStartedMusicOnFirstClick = false;
+        let musicNotesInterval = null;
+
+        // 1. Abrir la pantalla del sobre inicial y reproducir cancion.mp3 inmediatamente
+        function openSurprise() {
+            const screen = document.getElementById('envelope-screen');
+            if (screen && !screen.classList.contains('opacity-0')) {
+                screen.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+                spawnHeartShower(22);
+                setTimeout(() => {
+                    screen.style.display = 'none';
+                }, 900);
+            }
+            // Iniciar la reproducción de cancion.mp3 al hacer clic al inicio
+            startMusicOnInitialInteraction();
+        }
+
+        // Asegurar que cualquier primer clic al inicio de la página dispare cancion.mp3
+        function startMusicOnInitialInteraction() {
+            if (hasStartedMusicOnFirstClick) return;
+            hasStartedMusicOnFirstClick = true;
+
+            bgMusic.play().then(() => {
+                updateMusicUI(true);
+            }).catch(() => {
+                // Si aún no se ha subido cancion.mp3 o el navegador requiere otro toque
+                hasStartedMusicOnFirstClick = false;
+                updateMusicUI(false);
+            });
+        }
+
+        document.addEventListener('click', () => {
+            if (!hasStartedMusicOnFirstClick && bgMusic.paused) {
+                startMusicOnInitialInteraction();
+            }
+        }, { once: true });
+
+        // 2. Girar las tarjetas Polaroid al hacer clic
+        function flipPolaroid(cardElement) {
+            cardElement.classList.toggle('polaroid-flipped');
+        }
+
+        // 3. Previsualizar fotos locales desde el navegador (y guardarlas en localStorage para pruebas)
+        function previewLocalPhoto(event, imgId, slotNumber) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgElement = document.getElementById(imgId);
+                imgElement.src = e.target.result;
+                try {
+                    localStorage.setItem('aniversario_foto_' + slotNumber, e.target.result);
+                } catch (err) {
+                    // Si la imagen es muy pesada para localStorage, igual se muestra en vivo
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Cargar fotos guardadas en el navegador si el usuario ya las probó antes
+        window.addEventListener('DOMContentLoaded', () => {
+            for (let i = 1; i <= 4; i++) {
+                try {
+                    const saved = localStorage.getItem('aniversario_foto_' + i);
+                    if (saved) {
+                        const imgEl = document.getElementById('photo-' + i);
+                        if (imgEl && imgEl.src.includes('placehold.co')) {
+                            imgEl.src = saved;
+                        }
+                    }
+                } catch (e) {}
+            }
+            initScratchCard();
+            startBackgroundHearts();
+        });
+
+        // 4. Frasco de "Razones por las que te amo"
+        const loveNotes = [
+            "Por la forma en que tus ojos brillan cuando sonríes y me haces olvidar cualquier problema.",
+            "Porque incluso a la distancia tienes el superpoder de darme paz con un mensaje.",
+            "Por cómo me escuchas y conviertes hasta el día más normal en una aventura bonita.",
+            "Porque en estos 4 meses me has enseñado lo bonito que es amar con total complicidad.",
+            "Por tu ternura, tus ocurrencias y esa risa tuya que es mi sonido favorito.",
+            "Porque contigo puedo ser 100% yo mismo sin miedo a nada.",
+            "Por cada mensaje de buenos días y buenas noches que me alegra el corazón.",
+            "Porque me inspiras a ser mejor persona cada día que compartimos.",
+            "Por la forma tan bonita en que haces que la distancia se sienta pequeñita cuando hablamos.",
+            "Porque de entre millones de personas en el mundo, tuvimos la suerte de coincidir.",
+            "Porque 4 meses contigo se han sentido como el comienzo de algo para toda la vida."
+        ];
+        let currentNoteIndex = 0;
+
+        function drawLoveNote() {
+            const jar = document.getElementById('love-jar');
+            const noteText = document.getElementById('note-text');
+            const noteNumber = document.getElementById('note-number');
+
+            jar.classList.remove('jar-shake');
+            void jar.offsetWidth; // Reiniciar animación
+            jar.classList.add('jar-shake');
+
+            currentNoteIndex = (currentNoteIndex + 1) % loveNotes.length;
+            
+            setTimeout(() => {
+                noteNumber.textContent = `Razón #${currentNoteIndex + 1} de infinitas`;
+                noteText.textContent = `"${loveNotes[currentNoteIndex]}"`;
+            }, 220);
+        }
+
+        // 5. Tarjeta Raspadito en Canvas
+        function initScratchCard() {
+            const canvas = document.getElementById('scratch-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+
+            // Capa superior festiva para raspar
+            const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            grad.addColorStop(0, '#fda4af');
+            grad.addColorStop(0.5, '#f43f5e');
+            grad.addColorStop(1, '#fb7185');
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Texto sobre la capa de raspado
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 18px "Playfair Display", serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('✨ RASPA AQUÍ TU REGALO ✨', canvas.width / 2, canvas.height / 2 - 6);
+            ctx.font = '13px "Inter", sans-serif';
+            ctx.fillText('Desliza el dedo o el mouse', canvas.width / 2, canvas.height / 2 + 18);
+
+            let isDrawing = false;
+
+            function scratch(x, y) {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(x, y, 24, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            canvas.onmousedown = (e) => { isDrawing = true; const r = canvas.getBoundingClientRect(); scratch(e.clientX - r.left, e.clientY - r.top); };
+            window.addEventListener('mouseup', () => { isDrawing = false; });
+            canvas.onmousemove = (e) => {
+                if (!isDrawing) return;
+                const r = canvas.getBoundingClientRect();
+                scratch(e.clientX - r.left, e.clientY - r.top);
+            };
+
+            canvas.ontouchstart = (e) => {
+                isDrawing = true;
+                const r = canvas.getBoundingClientRect();
+                const touch = e.touches[0];
+                scratch(touch.clientX - r.left, touch.clientY - r.top);
+            };
+            canvas.ontouchend = () => { isDrawing = false; };
+            canvas.ontouchmove = (e) => {
+                if (!isDrawing) return;
+                e.preventDefault();
+                const r = canvas.getBoundingClientRect();
+                const touch = e.touches[0];
+                scratch(touch.clientX - r.left, touch.clientY - r.top);
+            };
+        }
+
+        // 6. Juego del botón "¿Me amas?"
+        let yesScale = 1;
+        const playfulPhrases = [
+            "¿Segura? 🥺",
+            "Piénsalo otra vez mi amor ❤️",
+            "¡El botón blanco se ve más bonito! ✨",
+            "Sabes que nos amamos muchísimo 💖",
+            "¡Dale al botón grande! 🥰"
+        ];
+        let phraseIdx = 0;
+
+        function growYesButton() {
+            yesScale += 0.22;
+            const yesBtn = document.getElementById('btn-yes');
+            const playfulBtn = document.getElementById('btn-playful');
+            yesBtn.style.transform = `scale(${yesScale})`;
+            playfulBtn.textContent = playfulPhrases[phraseIdx % playfulPhrases.length];
+            phraseIdx++;
+        }
+
+        function celebrateLove() {
+            const yesBtn = document.getElementById('btn-yes');
+            yesBtn.style.transform = 'scale(1)';
+            document.getElementById('question-subtitle').textContent = "¡Sabía que dirías que sí! Por muchísimos meses y años más juntos, mi amor ❤️";
+            document.getElementById('btn-playful').style.display = 'none';
+            yesBtn.textContent = "Pa cuando la boda?! 💍💖";
+            spawnHeartShower(40);
+            openLetterModal();
+        }
+
+        // 7. Modal de la carta
+        function openLetterModal() {
+            const modal = document.getElementById('letter-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeLetterModal() {
+            const modal = document.getElementById('letter-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 8. Corazones flotantes de fondo y lluvia de celebración
+        function createFloatingHeart(fast = false) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            const symbols = ['❤️', '💖', '✨', '🌸', '💕'];
+            heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            heart.style.left = Math.random() * 96 + 'vw';
+            heart.style.fontSize = (Math.random() * 16 + 14) + 'px';
+            heart.style.animationDuration = (fast ? (Math.random() * 2.5 + 2) : (Math.random() * 6 + 7)) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 13000);
+        }
+
+        function startBackgroundHearts() {
+            setInterval(() => {
+                createFloatingHeart(false);
+            }, 2200);
+        }
+
+        function spawnHeartShower(count = 20) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => createFloatingHeart(true), i * 80);
+            }
+        }
+
+        // Destello de corazoncitos donde el usuario haga clic
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('button') || e.target.closest('label') || e.target.closest('canvas')) return;
+            const symbols = ['❤️', '✨', '💕'];
+            for (let i = 0; i < 3; i++) {
+                const el = document.createElement('span');
+                el.className = 'click-burst text-sm';
+                el.textContent = symbols[i % symbols.length];
+                el.style.left = e.clientX + 'px';
+                el.style.top = e.clientY + 'px';
+                el.style.setProperty('--tx', (Math.random() * 70 - 35) + 'px');
+                el.style.setProperty('--ty', (Math.random() * -70 - 15) + 'px');
+                el.style.setProperty('--rot', (Math.random() * 60 - 30) + 'deg');
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 800);
+            }
+        });
+
+        // =========================================================================
+        // 9. CONTROLADOR DEL ARCHIVO cancion.mp3 Y CAJITA MUSICAL
+        // =========================================================================
+        function toggleMusic() {
+            hasStartedMusicOnFirstClick = true;
+            if (!bgMusic.paused) {
+                bgMusic.pause();
+                updateMusicUI(false);
+            } else {
+                bgMusic.play().then(() => {
+                    updateMusicUI(true);
+                }).catch(() => {
+                    const helper = document.getElementById('audio-file-helper');
+                    if (helper) {
+                        helper.textContent = "Asegúrate de colocar 'cancion.mp3' en la misma carpeta o usa 'Probar mi MP3 aquí'.";
+                        helper.classList.add('text-rose-600', 'font-medium');
+                    }
+                });
+            }
+        }
+
+        // Permitir probar el archivo MP3 desde la computadora/celular antes de subirlo a GitHub
+        function previewLocalAudio(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const fileURL = URL.createObjectURL(file);
+            bgMusic.src = fileURL;
+            bgMusic.play().then(() => {
+                hasStartedMusicOnFirstClick = true;
+                updateMusicUI(true);
+                const helper = document.getElementById('audio-file-helper');
+                if (helper) {
+                    helper.textContent = `Sonando vista previa: ${file.name}`;
+                    helper.classList.remove('text-rose-600');
+                }
+            });
+        }
+
+        function changeVolume(val) {
+            bgMusic.volume = parseFloat(val);
+        }
+
+        function seekAudio(percent) {
+            if (bgMusic.duration) {
+                bgMusic.currentTime = (percent / 100) * bgMusic.duration;
+            }
+        }
+
+        function formatTime(sec) {
+            if (!sec || isNaN(sec)) return "0:00";
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        bgMusic.addEventListener('timeupdate', () => {
+            const progress = document.getElementById('audio-progress');
+            const timeDisplay = document.getElementById('audio-time-display');
+            if (bgMusic.duration) {
+                if (progress) progress.value = (bgMusic.currentTime / bgMusic.duration) * 100;
+                if (timeDisplay) timeDisplay.textContent = `${formatTime(bgMusic.currentTime)} / ${formatTime(bgMusic.duration)}`;
+            }
+        });
+
+        bgMusic.addEventListener('play', () => updateMusicUI(true));
+        bgMusic.addEventListener('pause', () => updateMusicUI(false));
+
+        function spawnFloatingMusicNote() {
+            const note = document.createElement('div');
+            note.className = 'floating-heart';
+            const symbols = ['🎵', '🎶', '✨', '💖'];
+            note.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            note.style.left = (Math.random() * 80 + 10) + 'vw';
+            note.style.fontSize = '16px';
+            note.style.animationDuration = '5.5s';
+            document.body.appendChild(note);
+            setTimeout(() => note.remove(), 5600);
+        }
+
+        function updateMusicUI(isPlaying) {
+            const navLabel = document.getElementById('music-label');
+            const navEqBars = document.getElementById('nav-eq-bars');
+            const navMusicIcon = document.getElementById('nav-music-icon');
+            const mainBtnLabel = document.getElementById('main-music-box-label');
+            const statusBadge = document.getElementById('music-status-badge');
+            const windKey = document.getElementById('wind-up-key');
+            const cylinder = document.getElementById('music-cylinder');
+
+            if (isPlaying) {
+                if (navLabel) navLabel.textContent = 'Sonando • Pausar';
+                if (navEqBars) {
+                    navEqBars.classList.remove('hidden');
+                    navEqBars.classList.add('inline-flex');
+                }
+                if (navMusicIcon) navMusicIcon.classList.add('hidden');
+                if (mainBtnLabel) mainBtnLabel.textContent = 'Pausar Nuestra Canción ⏸️';
+                if (statusBadge) {
+                    statusBadge.textContent = 'Sonando Nuestra cancion ✨';
+                    statusBadge.className = 'text-[11px] text-rose-600 font-semibold';
+                }
+                if (windKey) windKey.classList.add('wind-key-spinning');
+                if (cylinder) cylinder.classList.add('cylinder-active');
+
+                if (!musicNotesInterval) {
+                    musicNotesInterval = setInterval(spawnFloatingMusicNote, 3200);
+                }
+            } else {
+                if (navLabel) navLabel.textContent = 'Nuestra Canción';
+                if (navEqBars) {
+                    navEqBars.classList.add('hidden');
+                    navEqBars.classList.remove('inline-flex');
+                }
+                if (navMusicIcon) navMusicIcon.classList.remove('hidden');
+                if (mainBtnLabel) mainBtnLabel.textContent = 'Reproducir Nuestra Canción 🎵';
+                if (statusBadge) {
+                    statusBadge.textContent = 'En pausa';
+                    statusBadge.className = 'text-[11px] text-stone-400';
+                }
+                if (windKey) windKey.classList.remove('wind-key-spinning');
+                if (cylinder) cylinder.classList.remove('cylinder-active');
+
+                if (musicNotesInterval) {
+                    clearInterval(musicNotesInterval);
+                    musicNotesInterval = null;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
